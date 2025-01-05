@@ -1,0 +1,349 @@
+/* Thêm vào đầu file */
+.main-content {
+  flex: 1;
+  margin: 0;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  height: 100%;
+}
+
+/* Style cho header */
+.page-header {
+  border-bottom: 1px solid #e0e0e0;  /* Thêm đường kẻ ngăn cách */
+  margin-bottom: 24px;  /* Thêm khoảng cách dưới header */
+}
+
+.page-title {
+  text-align: center !important;  /* Force căn giữa title */
+}
+
+/* Chỉnh sửa container chính */
+.profile-container-ac {
+  max-width: 1000px;
+  padding: 32px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #f8f8f8;
+  margin: 20px auto;
+}
+
+/* Chỉ giữ lại các style đặc thù của trang Account Info */
+.avatar-wrapper-ac {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  padding-left: 10px;
+}
+
+.avatar-circle-ac {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-container-ac {
+  width: 100%;
+}
+
+/* Layout cho các hàng thông tin */
+.info-row-ac {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.info-group-ac {
+  margin-bottom: 20px;
+}
+
+.info-group-ac label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #222;
+}
+
+.info-group-ac input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.info-group-ac input:read-only {
+  background-color: #f8f8f8;
+  cursor: default;
+}
+
+.content-wrapper {
+  margin: 24px;  /* hoặc giá trị margin giống như trong Home.css */
+}
+
+/* Nếu cần thiết, thêm padding cho questions-container */
+.questions-container {
+  padding: 24px;
+}
+
+/* Style cho nút cập nhật */
+.update-button-ac {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 24px;  /* Tạo khoảng cách với form phía trên */
+  transition: opacity 0.2s ease;
+}
+
+.update-button-ac:hover {
+  opacity: 0.9;
+}
+
+/* Điều chỉnh text */
+.radio-label span:not(.radio-custom) {
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  display: inline-block;
+}
+
+.change-email-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.change-email-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .info-row-ac {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+.info-input-readonly-ac {
+  background-color: var(--light-gray) !important;
+  cursor: not-allowed;
+}
+
+/* Style cho input wrapper */
+.input-wrapper {
+  width: 100%;
+  height: 42px;
+  padding: 0 15px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Style cho radio options */
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-mark {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.radio-option input[type="radio"]:checked + .radio-mark {
+  border: 2px solid var(--primary-color);
+}
+
+.radio-option input[type="radio"]:checked + .radio-mark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.radio-option span:not(.radio-mark) {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Điều chỉnh kích thước chung cho input và container */
+.info-group-ac input,
+.input-wrapper {
+  height: 36px; /* Giảm chiều cao từ 42px xuống 36px */
+  font-size: 13px; /* Giảm font size */
+}
+
+.info-group-ac input {
+  padding: 8px 12px; /* Giảm padding */
+}
+
+/* Điều chỉnh button */
+.update-button-ac {
+  padding: 8px 16px; /* Giảm padding */
+  font-size: 13px; /* Giảm font size */
+  height: 36px; /* Đồng bộ chiều cao với input */
+  min-width: 120px; /* Đặt chiều rộng tối thiểu */
+  border-radius: 6px; /* Giảm border radius */
+}
+
+/* Điều chỉnh radio button */
+.radio-custom,
+.radio-mark {
+  width: 14px; /* Giảm kích thước từ 16px */
+  height: 14px;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after,
+.radio-option input[type="radio"]:checked + .radio-mark::after {
+  width: 6px; /* Giảm kích thước dot */
+  height: 6px;
+}
+
+/* Điều chỉnh khoảng cách trong gender container */
+.gender-input-container {
+  padding: 0 12px; /* Giảm padding */
+}
+
+.gender-option {
+  margin-right: 30px; /* Giảm khoảng cách giữa các option */
+}
+
+/* Điều chỉnh label */
+.info-group-ac label {
+  font-size: 13px; /* Giảm font size */
+  margin-bottom: 6px; /* Giảm margin */
+}
+
+/* Style cho phần giới tính */
+.gender-container-ac {
+  width: 100%;
+  height: 36px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.gender-options-ac {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+}
+
+/* Style cho từng item radio + label */
+.gender-item-ac {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  height: 14px !important; /* Đặt chiều cao bằng với radio */
+}
+
+/* Style cho radio button */
+.gender-item-ac .gender-radio-ac {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 14px !important;
+  height: 14px !important;
+  border: 1.5px solid #ddd !important;
+  border-radius: 50% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: white !important;
+  position: relative !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important; /* Ngăn radio button bị co lại */
+}
+
+/* Style cho radio được chọn */
+.gender-item-ac .gender-radio-ac:checked {
+  border: 2px solid var(--primary-color) !important;
+}
+
+.gender-item-ac .gender-radio-ac:checked::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 6px !important;
+  height: 6px !important;
+  background-color: var(--primary-color) !important;
+  border-radius: 50% !important;
+}
+
+/* Style cho label text */
+.gender-item-ac .gender-label-ac {
+  font-size: 13px !important;
+  color: #333 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 14px !important; /* Đặt line-height bằng với chiều cao của radio */
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 14px !important; /* Đặt chiều cao bằng với radio */
+  position: relative !important;
+  top: 0 !important; /* Đảm bảo không bị dịch chuyển */
+}
+
+.error-message-ac {
+  color: #dc3545;
+  font-size: 14px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ffd7d7;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.success-message-ac {
+  color: #28a745;
+  font-size: 14px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #d4edda;
+  border-radius: 4px;
+  text-align: center;
+}

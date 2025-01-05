@@ -1,0 +1,1433 @@
+.class-detail-page {
+  height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.class-detail-container {
+  display: flex;
+  height: 100%;
+  padding-left: 0;
+}
+
+/* Sidebar styles */
+.class-sidebar {
+  width: 250px;
+  padding: 0;
+  flex-shrink: 0;
+  padding-right: 15px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000;
+  margin: 4px 8px;
+  border-radius: 8px;
+}
+
+.sidebar-item.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.sidebar-icon {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* Divider styles */
+.content-divider {
+  width: 1px;
+  background-color: #000;
+  height: 50vh;
+  margin-top: -60px;
+  margin-left: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Content area styles */
+.class-content {
+  flex: 1;
+  padding: 10px 10px;
+  overflow-y: auto;
+  margin-left: 10px;
+  position: relative;
+  z-index: 2;
+} 
+
+.class-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  position: relative;
+  z-index: 9999;
+  margin-bottom: 5px;
+  padding: 10px 0;
+}
+
+.class-info-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.class-info-text h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #000;
+}
+
+.class-info-text h3 {
+  font-size: 16px;
+  color: #000;
+  margin: 0;
+  font-weight: normal;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: var(--primary-link);
+  background: transparent;
+  border: 1px solid var(--light-blue);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: rgba(var(--light-blue), 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.download-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.divider {
+  text-align: center;
+  padding: 15px 0;
+  color: #000;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #000;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.link-container {
+  padding-top: 15px;
+}
+
+.link-container p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+}
+
+.copy-link-box {
+  display: flex;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.copy-link-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.copy-link-box button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Student list table styles */
+.student-list-table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.student-list-table th,
+.student-list-table td {
+  padding: 8px 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.student-list-table th {
+  font-weight: 500;
+  color: #000;
+  background-color: #f8f9fa;
+  padding: 8px 12px;
+}
+
+.student-list-table td {
+  color: #000;
+}
+
+.actions-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.edit-button {
+  color: #1a73e8;
+  border-color: #1a73e8;
+}
+
+.delete-button {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.checkbox-cell {
+  width: 40px;
+}
+
+.number-cell {
+  width: 60px;
+  text-align: center;
+}
+
+.name-cell {
+  width: 25%;
+}
+
+.student-id-cell {
+  width: 15%;
+}
+
+.exam-count-cell {
+  width: 15%;
+}
+
+.action-cell {
+  width: 120px;
+}
+
+.class-actions {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-group {
+  display: flex;
+  gap: 10px;
+}
+
+.student-action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 35px;
+  transition: all 0.2s ease;
+}
+
+.student-action-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student-action-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.student-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.student-search-box:hover,
+.student-search-box:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+}
+
+.student-search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+}
+
+.student-search-icon {
+  color: #000;
+  font-size: 18px;
+  order: 1;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.student-search-box:hover .student-search-icon,
+.student-search-box:focus-within .student-search-icon {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.add-student-modal {
+  background: white;
+  border-radius: 8px;
+  width: 450px;
+  padding: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.modal-header-h2 {
+  margin: 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.close-button {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-tab {
+  flex: 1;
+  padding: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.modal-tab.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.manual-form,
+.excel-form {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.manual-form {
+  padding: 20px;
+}
+
+.excel-upload {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  width: 90%;
+  min-height: 200px;
+  background: #f5f5f5;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.upload-label svg {
+  font-size: 24px;
+}
+
+.upload-label:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: #f0f7ff;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0;
+}
+
+.submit-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submit-button {
+  background: var(--primary-color);
+  border: none;
+  color: white;
+}
+
+.form-group {
+  padding-top: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: normal;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.student-email {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-button {
+  color: #1a73e8;
+  background: transparent;
+}
+
+.delete-button {
+  color: #dc3545;
+  background: transparent;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background: transparent;
+  margin: 0 4px;
+}
+
+.edit-button {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.delete-button {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.name-cell {
+  text-align: left;
+  width: 35%;
+}
+
+.number-cell {
+  width: 60px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background: transparent;
+}
+
+.edit-button {
+  color: #1a73e8;
+  border-color: #1a73e8;
+}
+
+.delete-button {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.edit-button:hover {
+  background-color: rgba(26, 115, 232, 0.1);
+  border-color: #1a73e8;
+}
+
+.delete-button:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+  border-color: #dc3545;
+}
+
+.edit-student-modal {
+  background: white;
+  border-radius: 8px;
+  width: 450px;
+  padding: 20px 20px 0 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.delete-student-modal {
+  background: white;
+  border-radius: 8px;
+  width: 600px;
+  padding: 24px 24px 10px 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-confirmation-text {
+  margin: 0;
+  color: #333;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.5;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-bottom: 20px;
+}
+
+.modal-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: white;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.delete-confirm-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-confirm-button:hover {
+  background: var(--primary-hover);
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 4px;
+  color: white;
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+  font-size: 14px;
+  min-width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.notification.success {
+  background: #28a745;
+}
+
+.notification.error {
+  background: #dc3545;
+}
+
+.notification.warning {
+  background: #ffc107;
+  color: #000;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.selected-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.selected-actions span {
+  color: #666;
+  font-size: 14px;
+}
+
+.delete-selected-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  color: #dc3545;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-selected-button:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.checkbox-cell input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Exam tab styles */
+.exam-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.exam-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  width: 250px;
+  height: 35px;
+  transition: all 0.3s ease;
+}
+
+.exam-search-box:hover,
+.exam-search-box:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+}
+
+.exam-search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+}
+
+.exam-search-icon {
+  color: #000;
+  font-size: 18px;
+  order: 1;
+  transition: all 0.3s ease;
+}
+
+.exam-search-box:hover .exam-search-icon,
+.exam-search-box:focus-within .exam-search-icon {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.exam-action-group {
+  display: flex;
+  gap: 10px;
+}
+
+.exam-action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 32px;
+  transition: all 0.2s ease;
+}
+
+.exam-action-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.exam-action-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.exam-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  margin-top: 40px;
+}
+
+.exam-empty-icon {
+  margin-bottom: 16px;
+}
+
+.exam-empty-text {
+  color: #666;
+  font-size: 15px;
+  margin: 0;
+}
+
+.exam-list-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  position: relative;
+  min-height: 400px;
+}
+
+.exam-list-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.exams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+  min-height: calc(100% - 60px);
+}
+
+.exam-card {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.exam-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.exam-icon {
+  font-size: 24px;
+  color: #4a90e2;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.exam-info {
+  flex: 1;
+}
+
+.exam-info h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.exam-info p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.exams-grid:empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exam-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.exam-empty-icon {
+  color: var(--primary-color);
+  opacity: 0.7;
+  font-size: 48px;
+}
+
+.exam-empty-text {
+  color: #666;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* Import Modal Styles */
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 700px !important;
+  padding: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.import-instructions {
+  margin-bottom: 16px;
+}
+
+.import-instructions p {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 15px;
+}
+
+.import-instructions ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.import-instructions li {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 14px;
+}
+
+.template-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.template-button:hover {
+  background: #f0f0f0;
+  border-color: #ccc;
+}
+
+.template-button svg {
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.form-group input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  background: #f8f9fa;
+  font-size: 14px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.form-group input[type="file"]:hover {
+  border-color: var(--primary-color);
+  background: #f0f7ff;
+}
+
+/* Student Edit Modal styles */
+.sem-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.sem-modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 450px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sem-modal-title {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  font-weight: 600;
+}
+
+.sem-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sem-form-group {
+  margin-bottom: 16px;
+}
+
+.sem-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: normal;
+  color: #333;
+}
+
+.sem-form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.sem-error-message {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.sem-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #dee2e6;
+}
+
+.sem-cancel-button,
+.sem-submit-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sem-cancel-button {
+  background: white;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.sem-submit-button {
+  background: var(--primary-color);
+  border: none;
+  color: white;
+}
+
+.sem-cancel-button:hover {
+  background: #f8f9fa;
+}
+
+.sem-submit-button:hover {
+  background: var(--primary-hover);
+}
+
+.exam-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 15px 0;
+}
+
+.exam-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.exam-item:hover {
+  background-color: #f5f5f5;
+}
+
+.exam-item.selected {
+  background-color: #e3f2fd;
+  border-color: #2196f3;
+}
+
+.export-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.export-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .class-detail-container {
+    padding: 0 10px;
+  }
+
+  .class-sidebar {
+    width: 200px;
+  }
+
+  .student-action-button,
+  .exam-action-button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .class-detail-container {
+    flex-direction: column;
+  }
+
+  .class-sidebar {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .content-divider {
+    display: none;
+  }
+
+  .class-content {
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .class-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .student-search-box,
+  .exam-search-box {
+    width: 100%;
+  }
+
+  .action-group {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .student-action-button,
+  .exam-action-button {
+    width: calc(50% - 4px);
+    justify-content: center;
+  }
+
+  /* Table Responsive */
+  .student-list-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Modal Responsive */
+  .add-student-modal,
+  .edit-student-modal,
+  .delete-student-modal,
+  .modal-content {
+    width: 90%;
+    max-width: 450px;
+    margin: 0 10px;
+  }
+
+  .exam-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .exam-search-box {
+    width: 100%;
+  }
+
+  .exam-action-group {
+    width: 100%;
+  }
+
+  .exam-action-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .exam-list-container {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .exam-card {
+    padding: 12px;
+  }
+
+  .exam-info h4 {
+    font-size: 14px;
+  }
+
+  .exam-info p {
+    font-size: 12px;
+  }
+
+  /* Modal xuất điểm responsive */
+  .exam-list {
+    max-height: 250px;
+  }
+
+  .exam-item {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .class-info-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .class-info-text {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .student-action-button,
+  .exam-action-button {
+    width: 100%;
+  }
+
+  .actions-buttons {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .action-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .selected-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .delete-selected-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Exam grid responsive */
+  .exams-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Modal tabs responsive */
+  .modal-tabs {
+    flex-direction: column;
+  }
+
+  .modal-tab {
+    width: 100%;
+    text-align: center;
+  }
+
+  .upload-label {
+    padding: 20px;
+    min-height: 150px;
+  }
+
+  .exam-list-title {
+    font-size: 15px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  .exam-empty-state {
+    padding: 40px 15px;
+  }
+
+  .exam-empty-icon {
+    font-size: 36px;
+  }
+
+  .exam-empty-text {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .exam-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .exam-icon {
+    margin-right: 0;
+  }
+
+  /* Modal xuất điểm responsive */
+  .modal-content h3 {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+
+  .exam-list {
+    margin: 10px;
+    max-height: 200px;
+  }
+
+  .modal-actions {
+    padding: 15px;
+  }
+}
+
+/* Thêm styles cho tablet portrait */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .exams-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .student-action-button,
+  .exam-action-button {
+    width: calc(33.33% - 6px);
+  }
+
+  .exam-action-button {
+    width: calc(50% - 5px);
+  }
+
+  .exam-card {
+    padding: 15px;
+  }
+}
+
+/* Thêm styles cho landscape mobile */
+@media screen and (max-height: 480px) {
+  .class-detail-page {
+    height: auto;
+    min-height: calc(100vh - 80px);
+  }
+
+  .modal-overlay {
+    align-items: flex-start;
+    padding: 20px 0;
+  }
+
+  .upload-label {
+    min-height: 120px;
+  }
+
+  .exam-list-container {
+    min-height: 300px;
+  }
+
+  .exam-list {
+    max-height: 180px;
+  }
+
+  .exam-empty-state {
+    padding: 30px 15px;
+  }
+}
+
+/* Thêm styles cho dark mode nếu cần */
+@media (prefers-color-scheme: dark) {
+  .class-detail-page {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+
+  .sidebar-item {
+    color: var(--dark-text);
+  }
+
+  .sidebar-item.active {
+    background: var(--primary-dark);
+  }
+
+  .exam-card {
+    background: var(--dark-card-bg);
+    border-color: var(--dark-border);
+  }
+}

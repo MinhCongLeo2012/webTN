@@ -1,0 +1,499 @@
+/* Container chung cho các trang có Ground */
+.ground-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--primary-color);
+}
+
+/* Thanh điều hướng bên trái */
+.side-nav {
+  width: 95px;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+  height: 100vh;
+  overflow: visible;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Các mục trong thanh điều hướng */
+.side-nav .nav-item {
+  width: 85px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  transform: translateY(3px);
+  background: transparent;
+}
+
+/* Text khi hover */
+.side-nav .nav-item .hover-text {
+  display: none;
+  position: absolute;
+  left: 100%;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  margin-left: 10px;
+  box-shadow: 0 2px 8px rgba(65, 105, 225, 0.2);
+  font-weight: 500;
+}
+
+/* Hiển thị text khi hover */
+.side-nav .nav-item:hover .hover-text {
+  display: block;
+}
+
+/* Hiệu ứng hover cho nav-item */
+.side-nav .nav-item:hover {
+  color: white;
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+.side-nav .nav-item.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+/* Layout chung cho tất cả các trang */
+.page-container {
+  flex: 1;
+  margin-left: 95px;
+  background-color: var(--primary-color);
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+  height: 100vh;
+}
+
+/* Header chung cho tất cả các trang */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 40px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #000000 !important; /* Horizontal divider */
+  padding-bottom: 10px;
+}
+
+.header-title-group {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 18px;
+  color: #1a1a1a;
+  font-weight: 600;
+  position: relative;
+}
+
+/* CHỈ trang home mới căn trái */
+.home-page .header-title-group {
+  justify-content: flex-start;
+  padding-left: 24px;
+}
+
+/* Style cho nút back */
+.back-button {
+  position: absolute;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  color: #000000;
+  transition: all 0.2s ease;
+  min-height: 40px;
+  min-width: 100px;
+  z-index: 1;
+}
+
+/* Container cho icon và text */
+.back-button span {
+  display: inline-block;
+  user-select: none;
+  line-height: 24px;
+  pointer-events: none;
+}
+
+.back-button svg {
+  pointer-events: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Hiệu ứng hover */
+.back-button:hover {
+  color: var(--primary-color);
+}
+
+/* Đảm bảo icon cũng có cursor pointer */
+.back-button svg {
+  cursor: pointer;
+}
+
+/* Style cho account control */
+.account-control {
+  position: relative;
+  z-index: 1000;
+  margin-left: auto;
+}
+
+/* Style mặc định cho title */
+.page-title {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 0;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  margin: 0;
+  background-color: var(--light-gray) !important;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  height: 100%;
+}
+
+.account-control {
+  position: relative;
+  margin-right: 8px;
+  transform: translateY(-2px);
+}
+
+.account-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #050505;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.account-icon-wrapper:hover {
+  border-color: var(--primary-color);
+  background-color: var(--light-gray);
+}
+
+/* Dropdown menu */
+.account-dropdown {
+  display: none;  /* Ẩn dropdown mặc định */
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  min-width: 220px;
+  padding: 8px 0;
+}
+
+.account-control:hover .account-dropdown {
+  display: block;  /* Hiển thị dropdown khi hover vào account-control */
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown-item .dropdown-icon,
+.dropdown-item .logout-icon {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.dropdown-item span {
+  flex-grow: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Hover effect nếu cn */
+.dropdown-item:hover {
+  background-color: var(--light-gray);
+}
+
+.logout-icon {
+  transform: rotate(180deg);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .ground-container {
+    flex-direction: column;
+  }
+
+  .side-nav {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    padding: 10px;
+    z-index: 1000;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .nav-items {
+    display: flex;
+    gap: 10px;
+    padding: 0;
+  }
+
+  .nav-item {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 8px;
+  }
+
+  .hover-text {
+    display: none;
+  }
+
+  .page-container {
+    margin-left: 0;
+    margin-bottom: 60px; /* Space for bottom nav */
+    padding: 10px;
+  }
+
+  .page-header {
+    padding: 0 10px;
+  }
+
+  .back-button {
+    left: 10px;
+    padding: 8px;
+  }
+}
+
+/* Common controls styles */
+.exam-page .exam-controls,
+.class-page .exam-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+  gap: 20px;
+}
+
+/* Common search và filter styles */
+.exam-page .search-container,
+.class-page .search-container {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+}
+
+.exam-page .search-box,
+.class-page .search-box {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  flex: 1;
+  gap: 12px;
+  height: 40px;
+}
+
+.exam-page .search-box input,
+.class-page .search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+}
+
+.exam-page .search-box .search-icon,
+.class-page .search-box .search-icon {
+  color: #000000;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.exam-page .search-box .search-icon:hover,
+.class-page .search-box .search-icon:hover {
+  color: var(--primary-color);
+}
+
+.exam-page .filter-select,
+.class-page .filter-select {
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  min-width: 140px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #0e0d0d;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.exam-page .filter-select:hover,
+.class-page .filter-select:hover {
+  border-color: var(--primary-color);
+}
+
+/* Common button styles */
+.exam-page .button-group,
+.class-page .button-group {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.exam-page .add-exam-button,
+.exam-page .add-content-button,
+.class-page .add-content-button {
+  height: 40px;
+  padding: 0 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  min-width: 135px;
+}
+
+.exam-page .add-exam-button:hover,
+.exam-page .add-content-button:hover,
+.class-page .add-content-button:hover {
+  opacity: 0.9;
+}
+
+.exam-page .icon-control,
+.class-page .icon-control {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Common container và grid styles */
+.exam-page .exams-container,
+.class-page .exams-container {
+  margin-top: 16px;
+  background-color: white;
+  border-radius: 8px;
+  min-height: calc(100vh - 220px);
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Common header styles */
+.exam-page .list-header,
+.class-page .list-header {
+  margin: 16px 0;
+}
+
+.exam-page .list-header h2,
+.class-page .list-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Common responsive styles */
+@media (max-width: 768px) {
+  .exam-page .exam-controls,
+  .class-page .exam-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .exam-page .search-container,
+  .class-page .search-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .exam-page .search-box,
+  .exam-page .filter-select,
+  .class-page .search-box,
+  .class-page .filter-select {
+    width: 100%;
+  }
+
+  .exam-page .button-group,
+  .class-page .button-group {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .exam-page .add-exam-button,
+  .exam-page .add-content-button,
+  .class-page .add-content-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .exam-page .exams-container,
+  .class-page .exams-container {
+    padding: 10px;
+  }
+}

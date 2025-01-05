@@ -1,0 +1,1339 @@
+.create-option:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.option-icon {
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.option-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.option-content p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .exam-create-options {
+    flex-direction: column;
+  }
+  
+  .exam-create-modal {
+    width: 95%;
+    margin: 20px;
+  }
+}
+
+.search-container {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  flex: 1;
+  gap: 12px;
+  height: 40px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.search-box .search-icon {
+  color: #666;
+  font-size: 20px;
+  transition: color 0.2s ease;
+}
+
+.search-box .search-icon:hover {
+  color: var(--primary-color);
+}
+
+.filter-select {
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  min-width: 160px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #0e0d0d;
+  transition: border-color 0.2s ease;
+}
+
+.filter-select:hover,
+.filter-select:focus {
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-box,
+  .filter-select {
+    width: 100%;
+  }
+}
+
+/* Context menu styles */
+.context-menu {
+  position: fixed;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 8px 0;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.context-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.context-menu-item:hover {
+  background: #f5f5f5;
+}
+
+/* Chỉnh style cho nút xóa trong context menu */
+.context-menu-item.delete {
+  color: #dc3545;
+}
+
+.context-menu-item.delete:hover {
+  background: #fff5f5;
+}
+
+/* Grid layout */
+.exams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .exams-grid {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+}
+
+/* Thay đổi style cho type badge */
+.type-badge {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
+}
+
+.type-badge.regular {
+  background-color: #E3F2FD;
+  color: #1976D2;
+}
+
+.type-badge.periodic {
+  background-color: #FFF3E0;
+  color: #E65100;
+}
+
+.type-badge.practice {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+/* File icon styles */
+.file-icon {
+  color: #5c6bc0;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.file-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Table column widths */
+.exam-table .type-column {
+  width: 180px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Button group styles */
+.button-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.delete-selected-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.delete-selected-button:hover {
+  opacity: 0.9;
+}
+
+.delete-selected-button .icon-control {
+  font-size: 18px;
+}
+
+/* Checkbox styles */
+.checkbox-column input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+}
+
+.checkbox-column input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Selected row styles */
+.exam-table tbody tr.selected {
+  background-color: #f8f9fa;
+}
+
+/* Main content styles for exam list */
+.exam-list-main {
+  padding: 20px;
+  width: 100%;
+}
+
+/* Table container */
+.exam-table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: calc(100vh - 240px);
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+/* Table styles */
+.exam-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Table header */
+.exam-table th {
+  background: #f8f9fa;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Table cells */
+.exam-table td {
+  position: relative;
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Checkbox column */
+.exam-table .checkbox-column {
+  width: 40px;
+  padding-right: 0;
+}
+
+.exam-table input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* File icon column */
+.exam-table td.file-icon-column {
+  width: 40px;
+  padding: 12px 8px;
+}
+
+.file-icon {
+  color: #e67e22;
+  font-size: 20px;
+}
+
+.exam-name {
+  color: #0066cc;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 0;
+}
+
+.exam-name:hover {
+  text-decoration: underline;
+}
+
+/* Class/Grade column */
+.exam-table .class-column {
+  width: 100px;
+  text-align: left;
+}
+
+/* Type column */
+.exam-table .type-column {
+  width: 180px;
+  text-align: left;
+}
+
+/* Date column */
+.exam-table .date-column {
+  width: 120px;
+  color: #666;
+}
+
+/* Hover effect on rows */
+.exam-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .exam-list-main {
+    padding: 10px;
+  }
+
+  .exam-table th,
+  .exam-table td {
+    padding: 8px;
+  }
+
+  /* Hide less important columns on mobile */
+  .exam-table .type-column,
+  .exam-table .class-column {
+    display: none;
+  }
+}
+
+/* Chỉnh sửa list header styles */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.list-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.list-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Assign exam button styles */
+.assign-exam-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #4CAF50; /* Màu xanh lá */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.assign-exam-button:hover {
+  opacity: 0.9;
+}
+
+.assign-exam-button .icon-control {
+  font-size: 18px;
+}
+
+/* Modal overlay */
+.exam-edit-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+/* Modal container */
+.exam-edit-modal {
+  background: white;
+  border-radius: 8px;
+  width: 600px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+/* Modal header */
+.exam-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 8px 8px 0 0;
+}
+
+.exam-modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+.exam-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exam-modal-close:hover {
+  color: #333;
+}
+
+/* Modal content */
+.exam-modal-content {
+  padding: 24px 32px;
+}
+
+.exam-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.exam-form-group input,
+.exam-form-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Modal actions */
+.exam-modal-actions {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid #eee;
+  z-index: 1;
+}
+
+.exam-modal-cancel,
+.exam-modal-save {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exam-modal-cancel {
+  background: white;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.exam-modal-save {
+  background: var(--primary-color);
+  border: none;
+  color: white;
+}
+
+.exam-modal-cancel:hover {
+  background: #f5f5f5;
+}
+
+.exam-modal-save:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .exam-edit-modal {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .exam-modal-content {
+    padding: 16px;
+  }
+  
+  .exam-modal-actions {
+    padding: 12px 16px;
+  }
+}
+
+/* Modal tạo đề thi */
+.exam-create-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.exam-create-modal {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.exam-create-options {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+}
+
+.create-option {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  padding: 32px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.create-option:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.option-icon {
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.option-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.option-content p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .exam-create-options {
+    flex-direction: column;
+  }
+  
+  .exam-create-modal {
+    width: 95%;
+    margin: 20px;
+  }
+}
+
+.exam-modal {
+  background: white;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.exam-modal-header {
+  padding: 16px 0 0 30px !important;
+  position: relative;
+}
+
+.exam-modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.exam-modal-content p {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.exam-modal-actions {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.exam-modal-cancel {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+}
+
+.exam-modal-confirm {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.exam-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exam-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Điều chỉnh padding cho td trong ct type */
+.exam-table td.type-column {
+  padding-right: 24px;
+}
+
+/* Điều chỉnh độ rộng cho select box môn học */
+.filter-select {
+  min-width: 160px; /* Tăng độ rộng ti thiểu */
+}
+
+/* Đảm bảo các select box có cùng chiều cao */
+.search-container select {
+  height: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-container {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .filter-select {
+    flex: 1;
+    min-width: calc(50% - 4px); /* 2 select trên một hàng cho mobile */
+  }
+}
+
+/* Style cho table */
+.exam-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Style cho các cột */
+.exam-table th,
+.exam-table td {
+  height: 40px; /* Giảm chiều cao từ 48px xuống 40px */
+  padding: 0 8px;
+  vertical-align: middle; /* Căn giữa theo chiều dọc */
+  text-align: left; /* Căn trái nội dung */
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Độ rộng cố định cho từng cột */
+.exam-table .checkbox-column {
+  width: 40px;
+  text-align: center; /* Căn giữa checkbox */
+}
+
+.exam-table .file-icon-column {
+  width: 40px;
+  padding: 0;
+  text-align: center;
+}
+
+
+.exam-table .class-column {
+  width: 100px;
+  text-align: left;
+}
+
+.exam-table .type-column {
+  width: 180px;
+  text-align: left;
+}
+
+.exam-table .date-column {
+  width: 120px;
+  text-align: center; /* Căn giữa ngày tháng */
+}
+
+/* Style cho badge loại đề thi */
+.type-badge {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.type-badge.regular {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.type-badge.periodic {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.type-badge.practice {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+/* Hover effect cho rows */
+.exam-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Style cho header */
+.exam-table thead th {
+  font-weight: 600;
+  color: #666;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Thêm tooltip khi hover để xem full text */
+.exam-table td {
+  position: relative;
+}
+
+/* Style cho thanh cuộn */
+.exam-table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.exam-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.exam-table-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.exam-table-container::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Giữ header cố định khi cuộn */
+.exam-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #f8f9fa;
+}
+
+/* Điều chỉnh margin cho tiêu đ */
+h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Style cho table */
+.exam-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Style cho checkbox column */
+.exam-table .checkbox-column {
+  width: 40px;
+  text-align: center;
+  padding: 12px 8px; /* Giữ nguyên padding cho checkbox */
+  vertical-align: middle; /* Căn giữa checkbox */
+}
+
+/* Style cho icon column */
+.exam-table .file-icon-column {
+  width: 40px;
+  padding: 0;
+  text-align: center;
+}
+
+/* Container cho icon */
+.exam-table .file-icon-column div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px; /* Chiều cao cố định cho container icon */
+}
+
+/* Style cho icon */
+.exam-table .file-icon-column svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Style cho cột icon */
+.exam-table .file-icon-column {
+  width: 40px;
+  padding: 0;
+  text-align: center;
+}
+
+/* Điều chỉnh kích thước modal */
+.exam-modal {
+  background: white;
+  border-radius: 8px;
+  width: 600px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style cho modal content */
+.exam-modal-content {
+  padding: 24px 32px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .exam-modal {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .exam-modal-content {
+    padding: 16px;
+  }
+}
+
+/* Đảm bảo select container có position relative */
+.exam-form-group {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+/* Cập nhật style cho form group và select trong modal */
+.exam-form-group {
+  position: relative;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.exam-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+  width: 100%;
+}
+
+/* Đảm bảo modal content không bị overflow */
+.exam-modal-content {
+  padding: 24px 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Cập nhật style cho select và options */
+.modal-select {
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.762L10.825 4z' fill='%23666666'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.modal-select option {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 32px;
+  box-sizing: border-box;
+  background-color: white;
+  color: #333;
+}
+
+.modal-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.type-badge.thuong_xuyen {
+  background-color: #E3F2FD;
+  color: #1976D2;
+}
+
+.type-badge.dinh_ki {
+  background-color: #FFF3E0;
+  color: #E65100;
+}
+
+.type-badge.on_tap {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+/* Style cho type column */
+.exam-table .type-column {
+  text-align: center;
+  min-width: 160px;
+}
+
+.type-badge {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
+}
+
+.type-badge.thuong_xuyen {
+  background-color: #E3F2FD;
+  color: #1976D2;
+}
+
+.type-badge.dinh_ki {
+  background-color: #FFF3E0;
+  color: #E65100;
+}
+
+.type-badge.on_tap {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+/* Chỉnh màu cho tên đề thi */
+.title-column {
+  color: #1976D2;  /* màu xanh */
+  cursor: pointer;
+}
+
+.title-column:hover {
+  text-decoration: underline;
+}
+
+/* Chỉnh margin cho cột môn học */
+.subject-column {
+  padding-left: 400px !important;
+}
+
+/* Căn giữa cho cột mục đích tạo đề */
+.type-column {
+  text-align: left !important;
+}
+
+.exam-table th.type-column {
+  text-align: left !important;
+}
+
+/* Thêm style cho badge đánh giá định kỳ */
+.type-badge.dinh_ky {
+  background-color: #FFF3E0;
+  color: #E65100;
+}
+
+/* Đảm bảo tất cả các badges đều được căn giữa */
+.type-badge {
+  display: inline-block;
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  /* Exam list container */
+  .exam-list-main {
+    padding: 0;
+    background: #fff;
+  }
+
+  .list-header {
+    padding: 16px;
+    margin: 0;
+    background: #f5f5f5;
+  }
+
+  .list-header h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  /* Table styles for mobile */
+  .exam-table-container {
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .exam-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  /* Hide original table header */
+  .exam-table thead {
+    display: none;
+  }
+
+  /* Style for list view 1 (with checkbox and file icon) */
+  .exam-table.list-view-1 tbody tr {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    gap: 12px;
+  }
+
+  .exam-table.list-view-1 .checkbox-column {
+    width: 24px;
+  }
+
+  .exam-table.list-view-1 .file-icon {
+    color: #8B1E1E;
+    font-size: 20px;
+  }
+
+  .exam-table.list-view-1 .title-column {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+  }
+
+  /* Style for list view 2 (with subject and date) */
+  .exam-table.list-view-2 tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+  }
+
+  .exam-table.list-view-2 thead tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #eee;
+  }
+
+  .exam-table.list-view-2 th {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    text-align: left;
+  }
+
+  .exam-table.list-view-2 td {
+    font-size: 14px;
+    color: #333;
+  }
+
+  /* Search and filters */
+  .search-container {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .search-box {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+
+  .filter-select {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23666666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+
+  /* Create exam button */
+  .add-exam-button {
+    background: #8B1E1E;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 16px 16px;
+  }
+}
+
+/* Thêm style cho nút xuất ma trận */
+.export-matrix-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #217346; /* Màu xanh của Excel */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.export-matrix-button:hover {
+  opacity: 0.9;
+}
+
+.export-matrix-button .icon-control {
+  font-size: 18px;
+}
+
+/* Điều chỉnh khoảng cách giữa các nút */
+.list-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Responsive cho các nút */
+@media (max-width: 768px) {
+  .list-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    padding: 0 16px;
+  }
+
+  .export-matrix-button,
+  .assign-exam-button,
+  .delete-selected-button {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .button-group {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .add-exam-button {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    margin: 8px 0;
+  }
+
+  /* Điều chỉnh header danh sách */
+  .list-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .list-header h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  /* Điều chỉnh controls */
+  .exam-controls {
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .search-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+}
+
+/* Thêm styles cho các nút có icon */
+.export-matrix-button,
+.assign-exam-button,
+.delete-selected-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.icon-control {
+  font-size: 18px;
+}
+
+/* Hover effects */
+.export-matrix-button:hover,
+.assign-exam-button:hover,
+.delete-selected-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Active effects */
+.export-matrix-button:active,
+.assign-exam-button:active,
+.delete-selected-button:active {
+  transform: translateY(1px);
+}

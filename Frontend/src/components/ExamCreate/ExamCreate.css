@@ -1,0 +1,974 @@
+:root {
+  /* Colors */
+  --background: #f5f5f5;
+  --white: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --primary-color: #5c2018;
+  --light-gray: #f0f0f0;
+  
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Shadow */
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset styles cho component */
+.create-container * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.create-container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--background);
+}
+
+.create-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.create-header-actions {
+  width: auto;
+  margin-right: 50px;
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  padding: 8px 0;
+}
+
+.create-content {
+  width: 900px;
+  margin: 80px auto 30px;
+  padding: 0 20px;
+}
+
+.create-form {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.create-questions-form {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 30px;
+  width: 100%;
+}
+
+.create-form-group {
+  margin-bottom: 20px;
+}
+
+.create-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.create-form-group input,
+.create-form-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.create-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.create-question {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.create-question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.create-question-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.create-select {
+  width: 100%;
+  height: 32px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+}
+
+.create-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.create-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-option-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.create-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* Button styles */
+.create-btn-primary,
+.create-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.create-btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.create-btn-secondary {
+  background-color: white;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.create-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: white;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.create-btn-primary:hover {
+  opacity: 0.9;
+}
+
+.create-btn-secondary:hover,
+.create-add-btn:hover {
+  background-color: var(--light-gray);
+}
+
+@media (max-width: 960px) {
+  .create-header-actions,
+  .create-content {
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  .create-form,
+  .create-questions-form {
+    padding: 20px;
+  }
+  
+  .create-form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+} 
+
+.create-question-controls input[type="number"] {
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  width: 80px;
+}
+
+.create-question-controls input[type="number"]::-webkit-inner-spin-button,
+.create-question-controls input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+  height: auto;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+/* Modal container */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: var(--shadow);
+}
+
+/* Modal title */
+.modal-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+/* Modal body */
+.modal-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding-bottom: 0;
+  position: relative;
+}
+
+/* Footer container */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Close button */
+.modal-close-btn {
+  background-color: white;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Distribute button */
+.modal-distribute-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modal-distribute-btn:hover {
+  opacity: 0.9;
+}
+
+/* Text style */
+.modal-text {
+  color: var(--text-color);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Input style */
+.modal-input {
+  width: 80px;
+  padding: 8px 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  background-color: var(--white);
+  margin-left: auto;
+  text-align: center;
+}
+
+.modal-input:hover {
+  border-color: var(--text-color);
+}
+
+.modal-input:focus {
+  border-color: var(--text-color);
+  box-shadow: 0 0 0 1px var(--text-color);
+}
+
+.modal-input::-webkit-inner-spin-button,
+.modal-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* CSS cho input number trong modal (không có nút tăng/giảm) */
+.modal-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.modal-input-number {
+  width: 80px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.modal-input-number::-webkit-inner-spin-button,
+.modal-input-number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* CSS cho input number trong question controls (có nút tăng/giảm) */
+.create-question-controls input[type="number"] {
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  width: 80px;
+}
+
+.create-question-controls input[type="number"]::-webkit-inner-spin-button,
+.create-question-controls input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+  height: auto;
+}
+
+/* Input wrapper để chứa input và error message */
+.modal-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: auto;
+  position: relative;
+}
+
+/* Error message style */
+.modal-error {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+  white-space: nowrap;
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+}
+
+/* Cập nhật styles cho confirm modal */
+.confirm-modal {
+  max-width: 400px !important;
+}
+
+.confirm-modal .modal-body {
+  display: block;
+  text-align: left;
+  padding-bottom: 16px;
+}
+
+.confirm-modal .modal-body p {
+  color: var(--text-color);
+  font-size: 16px;
+  margin: 0;
+  text-align: left;
+}
+
+.modal-confirm-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modal-confirm-btn:hover {
+  opacity: 0.9;
+}
+
+
+/* Thêm style cho container ghi chú */
+.create-note-container {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.create-note-container .create-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.create-note-container .create-textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.create-note-container .create-textarea::placeholder {
+  color: #999;
+}
+
+/* Cập nhật responsive */
+@media (max-width: 960px) {
+  .create-note-container {
+    padding: 20px;
+  }
+}
+
+/* Thêm style cho button group */
+.create-button-group {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: 10px;
+}
+
+/* Style cho nút swap */
+.create-swap-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: white;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.create-swap-btn:hover {
+  background-color: var(--light-gray);
+}
+
+.create-swap-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Thêm style cho câu hỏi khi được chọn để swap */
+.create-question.swappable {
+  cursor: pointer;
+  position: relative;
+}
+
+.create-question.swappable::after {
+  content: "Click để hoán đổi";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.create-question.swappable:hover::after {
+  opacity: 1;
+}
+
+/* Cập nhật style cho nút có icon */
+.create-btn-secondary svg {
+  margin-right: 6px;
+}
+
+/* Thêm style cho group điểm */
+.points-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-direction: row;
+}
+
+.points-label {
+  color: var(--text-color);
+  font-size: 14px;
+  white-space: nowrap;
+  order: -1;
+}
+
+/* Cập nhật style cho input điểm */
+.create-question-controls input[type="number"] {
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  width: 80px;
+  text-align: center;
+}
+
+.create-question-controls input[type="number"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Style cho nhóm nút điều khiển câu hỏi */
+.question-action-buttons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.create-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: white;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.create-icon-btn:hover {
+  background-color: var(--light-gray);
+}
+
+.create-icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.create-icon-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Cập nhật layout cho controls */
+.create-question-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Style cho ReactQuill */
+.ql-toolbar.ql-snow {
+  border: 1px solid var(--border-color) !important;
+  border-radius: 4px 4px 0 0;
+  background-color: white;
+}
+
+.ql-container.ql-snow {
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0 0 4px 4px;
+  margin-bottom: 20px;
+  font-family: inherit;
+}
+
+.ql-editor {
+  min-height: 100px;
+  font-size: 14px;
+}
+
+/* Tùy chỉnh màu sắc cho toolbar buttons khi active */
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  border-color: var(--border-color);
+}
+
+.ql-snow .ql-toolbar button:hover,
+.ql-snow .ql-toolbar button.ql-active {
+  color: var(--primary-color);
+}
+
+.ql-snow .ql-toolbar button:hover .ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-fill {
+  fill: var(--primary-color);
+}
+
+/* Điều chỉnh layout cho form row */
+.create-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Đảm bảo các select box có cùng chiều cao */
+.create-select {
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+}
+
+/* Điều chỉnh margin cho form groups */
+.create-form-group {
+  margin-bottom: 20px;
+}
+
+/* Form group trong form row không cần margin bottom */
+.create-form-row .create-form-group {
+  margin-bottom: 0;
+}
+
+/* Style cho các nút trong header */
+.create-cancel-btn,
+.create-save-btn {
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Style cho nút Hủy */
+.create-cancel-btn {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.create-cancel-btn:hover {
+  background-color: var(--light-gray);
+}
+
+/* Style cho nút Lưu */
+.create-save-btn {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+}
+
+.create-save-btn:hover {
+  background-color: #4a1a13; /* Màu đậm hơn khi hover */
+}
+
+/* Điu chỉnh header actions */
+.create-header-actions {
+  width: auto;
+  margin-right: 50px;
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  padding: 8px 0;
+}
+
+/* Đảm bảo nút không bị biến dạng khi click */
+.create-cancel-btn:active,
+.create-save-btn:active {
+  transform: translateY(1px);
+}
+
+/* Thêm outline khi focus cho accessibility */
+.create-cancel-btn:focus,
+.create-save-btn:focus {
+  outline: none;
+}
+
+/* Disabled state */
+.create-cancel-btn:disabled,
+.create-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Style cho select mức độ */
+.create-question-controls .level-select {
+  width: auto;
+  min-width: 120px;
+  height: 32px;
+  padding: 4px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.create-question-controls .level-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.create-question-controls .level-select option {
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* Style cho option item */
+.create-option-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* Style cho nút xóa option */
+.create-option-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: white;
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.create-option-remove:hover {
+  background-color: #fff5f5;
+  border-color: #dc3545;
+}
+
+/* Style cho nút thêm option */
+.create-add-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px dashed var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.create-add-option:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.required {
+  color: red;
+  margin-left: 4px;
+}
+
+.error {
+  border-color: red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Responsive styles cho mobile */
+@media (max-width: 768px) {
+  /* Điều chỉnh content width */
+  .create-content {
+    width: 100%;
+    margin: 70px auto 20px;
+    padding: 0 15px;
+  }
+
+  /* Điều chỉnh question controls */
+  .create-question-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Điều chỉnh points input group */
+  .points-input-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Điều chỉnh level select */
+  .create-question-controls .level-select {
+    width: 100%;
+  }
+
+  /* Điều chỉnh question action buttons */
+  .question-action-buttons {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+
+  /* Điều chỉnh option items */
+  .create-option-item {
+    flex-wrap: wrap;
+  }
+
+  .create-option-item input[type="text"] {
+    flex: 1 1 calc(100% - 70px);
+    min-width: 0;
+  }
+
+  /* Điều chỉnh modal */
+  .modal-content {
+    width: 95%;
+    max-width: none;
+    margin: 0 10px;
+  }
+
+  .modal-body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .modal-input-wrapper {
+    width: 100%;
+  }
+
+  .modal-input {
+    width: 100%;
+  }
+
+  /* Điều chỉnh ReactQuill toolbar */
+  .ql-toolbar.ql-snow {
+    flex-wrap: wrap;
+  }
+
+  .ql-toolbar.ql-snow .ql-formats {
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+
+  /* Điều chỉnh padding cho form containers */
+  .create-form,
+  .create-questions-form,
+  .create-note-container {
+    padding: 15px;
+  }
+
+  /* Điều chỉnh question spacing */
+  .create-question {
+    padding: 15px;
+  }
+
+  /* Điều chỉnh header actions */
+  .create-header-actions {
+    margin-right: 15px;
+  }
+}
+
+/* Thêm media query cho màn hình cực nhỏ */
+@media (max-width: 480px) {
+  /* Điều chỉnh header buttons */
+  .create-cancel-btn,
+  .create-save-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  /* Điều chỉnh modal buttons */
+  .modal-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .modal-close-btn,
+  .modal-distribute-btn,
+  .modal-confirm-btn {
+    width: 100%;
+  }
+
+  /* Điều chỉnh form labels */
+  .create-form-group label {
+    font-size: 13px;
+  }
+
+  /* Điều chỉnh question title */
+  .create-question-header h3 {
+    font-size: 15px;
+  }
+}
+
+/* Thêm styles cho orientation landscape trên mobile */
+@media (max-width: 896px) and (orientation: landscape) {
+  .create-content {
+    margin-top: 80px;
+  }
+
+  .modal-content {
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}

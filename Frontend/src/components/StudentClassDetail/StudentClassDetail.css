@@ -1,0 +1,240 @@
+/* Container */
+.student-exam-page {
+  height: 100%;
+  padding: 10px;
+}
+
+/* Header section */
+.student-exam-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.student-exam-title {
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+
+/* Search section */
+.student-exam-search {
+  flex: 0 1 400px;
+  position: relative;
+}
+
+.student-exam-search-input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.student-exam-search-input:hover {
+  border-color: #000000;
+}
+
+.student-exam-search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(92, 32, 24, 0.1);
+}
+
+.student-exam-search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.student-exam-search-icon:hover {
+  color: var(--primary-color);
+}
+
+/* Grid and cards */
+.student-exam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.student-exam-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  transition: all 0.2s ease;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  min-height: 80px;
+}
+
+.student-exam-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.student-exam-icon {
+  width: 40px;
+  height: 40px;
+  background: #f0f7ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.student-exam-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-exam-name {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.exam-status {
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.exam-status.student-exam-card-completed {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.exam-status.student-exam-card-upcoming {
+  background: #E3F2FD;
+  color: #1565C0;
+}
+
+.student-exam-no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+@media (max-width: 1024px) {
+  .student-exam-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .student-exam-page {
+    padding: 16px;
+  }
+
+  .student-exam-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    margin-bottom: 20px;
+  }
+
+  .student-exam-search {
+    flex: none;
+    width: 100%;
+  }
+
+  .student-exam-search-input {
+    font-size: 13px;
+    padding: 10px 36px 10px 12px;
+  }
+
+  .student-exam-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .student-exam-name {
+    font-size: 13px;
+  }
+
+  .exam-status {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-exam-page {
+    padding: 12px;
+  }
+
+  .student-exam-card {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .student-exam-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .student-exam-content {
+    gap: 8px;
+  }
+
+  .student-exam-no-results {
+    padding: 24px;
+    font-size: 14px;
+  }
+
+  .student-exam-search-icon {
+    font-size: 14px;
+    right: 10px;
+  }
+} 
+
+.student-exam-card.student-exam-card-completed {
+  border-left: 4px solid #4CAF50;
+}
+
+.student-exam-card.student-exam-card-upcoming {
+  border-left: 4px solid #2196F3;
+}
+
+.exam-time-info {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 8px;
+}
+
+.exam-time-info p {
+  margin: 2px 0;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+} 
