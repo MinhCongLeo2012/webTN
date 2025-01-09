@@ -142,23 +142,23 @@ function ExamReview() {
   ];
 
   const subjectMapping = {
-    'AN': 'AN',
-    'SINH': 'SINH',
-    'CN': 'CN',
-    'DIA': 'DIA',
-    'GDQPAN': 'GDQPAN',
-    'GDTC': 'GDTC',
-    'GDKTPL': 'GDKTPL',
-    'HOA': 'HOA',
-    'TIN': 'TIN',
-    'SU': 'SU',
-    'MT': 'MT',
-    'NN1': 'NN1',
-    'NN2': 'NN2',
-    'VAN': 'VAN',
-    'TDTTS': 'TDTTS',
-    'TOAN': 'TOAN',
-    'VLY': 'VLY'
+    'Toán': 'TOAN',
+    'Vật lý': 'VLY',
+    'Hóa học': 'HOA',
+    'Sinh học': 'SINH',
+    'Mĩ thuật': 'MT',
+    'Âm nhạc': 'AN',
+    'Tin học': 'TIN',
+    'Ngữ văn': 'VAN',
+    'Ngoại ngữ 1': 'NN1',
+    'Ngoại ngữ 2': 'NN2', 
+    'Lịch sử': 'SU',
+    'Địa lý': 'DIA',
+    'Công nghệ': 'CN',
+    'Giáo dục thể chất': 'GDTC',
+    'Giáo dục quốc phòng và an ninh': 'GDQPAN',
+    'Giáo dục kinh tế và pháp luật': 'GDKTPL',
+    'Tiếng dân tộc thiểu số': 'TDTTS'
   };
 
   const handleDistributePoints = (total) => {
