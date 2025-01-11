@@ -909,7 +909,7 @@ class ExamController {
       // Giải thích định dạng câu hỏi
       doc.fontSize(11)
          .text('Mỗi câu hỏi được định dạng theo cấu trúc:')
-         .text('Câu n: (mức đ��) nội dung câu hỏi', { indent: 30 })
+         .text('Câu n: (mức độ) nội dung câu hỏi', { indent: 30 })
          .moveDown();
 
       // Giải thích mức độ
