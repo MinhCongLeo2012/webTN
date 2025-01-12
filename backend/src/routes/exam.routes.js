@@ -12,6 +12,7 @@ router.post('/parse', verifyToken, upload.single('file'), ExamController.parseEx
 // Các routes có parameter đặt sau
 router.get('/', verifyToken, ExamController.getAllExams);
 router.post('/create', verifyToken, ExamController.createExam);
+router.get('/search', verifyToken, ExamController.searchExams); // Thêm route này trước các routes có parameter
 router.get('/:id', verifyToken, ExamController.getExamById);
 router.delete('/:id', verifyToken, ExamController.deleteExam);
 router.put('/:id', verifyToken, ExamController.updateExam);

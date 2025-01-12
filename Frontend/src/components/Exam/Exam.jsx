@@ -53,6 +53,27 @@ function Exam() {
     { value: 'ethnic-language', label: 'Tiếng dân tộc thiểu số' }
   ];
 
+  // Cập nhật ánh xạ giá trị môn học
+  const subjectMapping = {
+    'literature': 'VAN',
+    'math': 'TOAN',
+    'physics': 'VLY',
+    'chemistry': 'HOA',
+    'biology': 'SINH',
+    'history': 'SU',
+    'geography': 'DIA',
+    'technology': 'CN',
+    'informatics': 'TIN',
+    'music': 'AN',
+    'fine-art': 'MT',
+    'physical-education': 'GDTC',
+    'defense-education': 'GDQPAN',
+    'economics-law': 'GDKTPL',
+    'foreign-language-1': 'NN1',
+    'foreign-language-2': 'NN2',
+    'ethnic-language': 'TDTTS'
+  };
+
   useEffect(() => {
     const fetchExams = async () => {
       try {
@@ -106,29 +127,54 @@ function Exam() {
 
   const handleSearch = async () => {
     try {
-      let url = '/api/exam/search?';
+      // Nếu không có điều kiện tìm kiếm nào, gọi API lấy tất cả đề thi
+      if (!searchTerm && !selectedGrade && !selectedType && !selectedSubject) {
+        const response = await axios.get(`${API_BASE_URL}/api/exam`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        if (response.data.success) {
+          setExams(response.data.data);
+        }
+        return;
+      }
+
+      let url = `${API_BASE_URL}/api/exam/search?`;
       if (searchTerm) url += `search=${searchTerm}&`;
       if (selectedGrade) url += `grade=${selectedGrade}&`;
       if (selectedType) url += `type=${selectedType}&`;
-      if (selectedSubject) url += `subject=${selectedSubject}`;
+      if (selectedSubject) {
+        // Chuyển đổi giá trị môn học sang mã môn học tương ứng
+        const subjectCode = subjectMapping[selectedSubject];
+        if (subjectCode) {
+          url += `subject=${subjectCode}`;
+        }
+      }
 
-      const response = await fetch(url, {
+      const response = await axios.get(url, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
 
-      if (!response.ok) {
-        throw new Error('Không thể tìm kiếm đề thi');
+      if (response.data.success) {
+        setExams(response.data.data);
+      } else {
+        toast.error('Không thể tìm kiếm đề thi');
       }
-
-      const data = await response.json();
-      setExams(data.data);
     } catch (error) {
       console.error('Error searching exams:', error);
       toast.error('Không thể tìm kiếm đề thi');
     }
   };
+
+  // Cập nhật useEffect để gọi handleSearch khi xóa hết từ khóa tìm kiếm
+  useEffect(() => {
+    if (!searchTerm && !selectedGrade && !selectedType && !selectedSubject) {
+      handleSearch();
+    }
+  }, [searchTerm, selectedGrade, selectedType, selectedSubject]);
 
   const handleCreateOption = (option) => {
     setShowCreateModal(false);

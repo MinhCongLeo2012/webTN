@@ -344,7 +344,7 @@ function ExamReview() {
       // Chuyển đổi dữ liệu sang format API yêu cầu
       const examPayload = {
         tende: examData.name,
-        monhoc: subjectMapping[examData.subject] || 'AN',
+        monhoc: examData.subject,
         mucdich: examData.purpose,
         khoi: gradeMapping[examData.grade] || 'L10',
         ghichu: '',

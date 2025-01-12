@@ -129,14 +129,83 @@ class ExamController {
   }
 
   static async searchExams(req, res) {
+    const client = await pool.connect();
     try {
-      // Implement search logic here
-      res.json([]);
+      const { search, grade, type, subject } = req.query;
+      const userId = req.user.id;
+
+      let query = `
+        SELECT 
+          d.*,
+          u.hoten as teacher_name,
+          json_agg(
+            DISTINCT jsonb_build_object(
+              'idcauhoi', ch.idcauhoi,
+              'noidung', ch.noidung,
+              'dap_an_a', ch.dap_an_a,
+              'dap_an_b', ch.dap_an_b,
+              'dap_an_c', ch.dap_an_c,
+              'dap_an_d', ch.dap_an_d,
+              'diem', ch.diem,
+              'mucdo', cdm.idmucdo,
+              'dapan', da.dapandung
+            )
+          ) FILTER (WHERE ch.idcauhoi IS NOT NULL) as questions
+        FROM DETHI d
+        JOIN "USER" u ON d.iduser = u.iduser
+        LEFT JOIN CAUHOI ch ON d.iddethi = ch.iddethi
+        LEFT JOIN CH_DA_MD cdm ON ch.idcauhoi = cdm.idcauhoi
+        LEFT JOIN DAPAN da ON cdm.iddapan = da.iddapan
+        WHERE d.iduser = $1
+      `;
+
+      const params = [userId];
+      let paramCount = 2;
+
+      if (search) {
+        query += ` AND LOWER(d.tende) LIKE LOWER($${paramCount})`;
+        params.push(`%${search}%`);
+        paramCount++;
+      }
+
+      if (grade) {
+        query += ` AND d.idkhoi = $${paramCount}`;
+        params.push(`L${grade}`);
+        paramCount++;
+      }
+
+      if (type) {
+        query += ` AND d.idmucdich = $${paramCount}`;
+        params.push(type);
+        paramCount++;
+      }
+
+      if (subject) {
+        query += ` AND d.idmonhoc = $${paramCount}`;
+        params.push(subject);
+        paramCount++;
+      }
+
+      query += ` GROUP BY d.iddethi, u.hoten ORDER BY d.ngaytao DESC`;
+
+      console.log('Search query:', query);
+      console.log('Search params:', params);
+
+      const result = await client.query(query, params);
+
+      res.json({
+        success: true,
+        data: result.rows
+      });
     } catch (error) {
+      console.error('Error in searchExams:', error);
       res.status(500).json({
         success: false,
-        message: 'Lỗi khi tìm kiếm đề thi'
+        message: 'Lỗi khi tìm kiếm đề thi',
+        error: error.message
       });
+    } finally {
+      client.release();
     }
   }
 
