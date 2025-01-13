@@ -1,0 +1,13 @@
+Tải PostgreSQL 
+Vào PgAdmin mở query và tiến hành chạy script
+vào file env, commands sửa lại tên db và mật khẩu khớp với tên db và mật khẩu trên máy.
+
+cd .\backend\
+npm i // cài đặt các thư viện
+npm run dev
+npm run create-admin // tạo tài khoản admin
+
+cd .\Frontend\
+npm i 
+npm run dev
+ctrl click vào đường dẫn localhost

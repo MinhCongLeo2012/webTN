@@ -1,0 +1,40 @@
+## Giới Thiệu
+Dự án backend sử dụng Node.js
+
+## Thư viện be
+bcrypt: Mã hóa mật khẩu an toàn.
+cors: Kích hoạt CORS cho các yêu cầu khác nguồn.
+crypto: Thư viện mã hóa và tạo hash.
+dotenv: Quản lý biến môi trường từ file .env.
+exceljs: Xử lý file Excel (đọc/ghi).
+express: Framework xây dựng API.
+google-auth-library: Xác thực OAuth và API Google.
+jsonwebtoken: Tạo và xác thực JSON Web Token.
+multer: Middleware hỗ trợ upload file.
+nodemailer: Gửi email qua SMTP.
+pdf-parse: Trích xuất nội dung từ file PDF.
+pdfjs-dist: Làm việc với file PDF (trên trình duyệt hoặc server).
+pdfkit: Tạo file PDF.
+pg: Kết nối và truy vấn cơ sở dữ liệu PostgreSQL.
+uuid: Tạo mã định danh duy nhất (UUID).
+
+## Giới Thiệu
+Dự án frontend sử dụng React và Vite
+
+##Thư viện fe
+@emotion/react & @emotion/styled: Tạo và quản lý style với CSS-in-JS.
+@mui/material: Thư viện giao diện Material UI.
+@react-oauth/google: Tích hợp xác thực OAuth với Google.
+axios: Gửi yêu cầu HTTP.
+html2pdf.js: Tạo file PDF từ HTML.
+qrcode.react: Tạo mã QR bằng React.
+ra-data-json-server: Data provider cho react-admin kết nối với JSON server.
+react-admin: Tạo giao diện admin dễ dàng.
+react-icons: Bộ sưu tập biểu tượng cho React.
+react-quill: Trình soạn thảo văn bản WYSIWYG.
+react-router-dom: Quản lý routing cho ứng dụng React.
+react-select: Tạo dropdown tương tác.
+react-toastify: Hiển thị thông báo dạng toast.
+xlsx: Làm việc với file Excel.
+
+Database PostgreSQL (sử dung PgAdmin)
