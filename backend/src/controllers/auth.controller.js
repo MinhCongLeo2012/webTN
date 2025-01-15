@@ -374,8 +374,10 @@ class AuthController {
       const hashedPassword = await bcrypt.hash(newPassword, 10);
 
       try {
-        // URL xác nhận (thay thế bằng URL frontend thực tế của bạn)
-        const confirmUrl = `${process.env.FRONTEND_URL}/api/auth/confirm-password?email=${encodeURIComponent(email)}&password=${encodeURIComponent(hashedPassword)}`;
+         // Sử dụng fallback URL nếu BACKEND_URL không tồn tại
+         const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000';
+         const confirmUrl = `${backendUrl}/api/auth/confirm-password?email=${encodeURIComponent(email)}&password=${encodeURIComponent(hashedPassword)}`;
+         console.log('Generated confirmation URL:', confirmUrl);
 
         await transporter.sendMail({
           from: {
